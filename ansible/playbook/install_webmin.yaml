@@ -13,7 +13,7 @@
       - libpam-runtime
       - libio-pty-perl
       - apt-show-versions
-      - python
+      - python3
       - libwww-perl
       - liblwp-protocol-https-perl
       state: latest
