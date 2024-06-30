@@ -1,0 +1,14 @@
+---
+- name: Update Linux host
+  hosts: all
+  become: true
+  tasks:
+    - name: Get all updates
+      ansible.builtin.apt:
+        update_cache: true
+        autoremove: true
+        autoclean: true
+    - name: Upgrade all packages on servers
+      ansible.builtin.apt:
+      name: "*"
+      state: latest
