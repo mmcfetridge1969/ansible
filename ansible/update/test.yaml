@@ -1,14 +1,21 @@
 ---
-- name: Update Linux host
+- name: Update, Upgrade, Autoremove, and Autoclean
   hosts: all
   become: true
+
   tasks:
-    - name: Get all updates
-      ansible.builtin.apt:
-        update_cache: true
-        autoremove: true
-        autoclean: true
-    - name: Upgrade all packages on servers
-      ansible.builtin.apt:
-      name: "*"
-      state: latest
+  - name: Update package index
+    apt:
+      update_cache: yes
+
+  - name: Upgrade packages
+    apt:
+      upgrade: yes
+
+  - name: Autoremove packages
+    apt:
+      autoremove: yes
+
+  - name: Autoclean packages
+    apt:
+      autoclean: yes
