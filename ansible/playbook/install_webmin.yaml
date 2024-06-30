@@ -1,15 +1,7 @@
 ---
-#
-# Ansible playbook: Webmin for Ubuntu v201501302302
-# Louis T. Getterman IV (@LTGIV)
-# www.GotGetLLC.com / www.opensour.cc
-#
-# Example Usage:
-# [user@host ~$] ansible-playbook /etc/ansible/playbooks/webmin.yml --extra-vars 'target=nameFromHostsFile'
-#
-- hosts: '{{ target }}'
-  sudo: yes
-
+- name: Update, Upgrade, Autoremove, and Autoclean
+  hosts: all
+  become: true
   tasks:
 
      - name: Add Webmin repositories
