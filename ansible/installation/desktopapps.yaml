@@ -1,0 +1,19 @@
+- name: Install desktop applications
+  hosts: "ip.address for desktop"
+  become: true
+
+  tasks:
+    - name: Install Desktop Applications
+      ansible.builtin.apt:
+        name:
+          - curl
+          - wireguard-tools
+          - wireguard
+          - qbittorrent
+          - terminator
+          - filezilla
+          - git-all
+          - codium
+          - stacer
+          - tor
+        update_cache: true
