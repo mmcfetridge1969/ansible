@@ -15,7 +15,17 @@
   - name: Autoremove packages
     apt:
       autoremove: yes
+      purge: true
 
   - name: Autoclean packages
     apt:
       autoclean: yes
+
+  - name: Update all packages to their latest version
+    ansible.builtin.apt:
+      name: "*"
+      state: latest
+
+  - name: Run the equivalent of "apt-get clean" as a separate step
+    ansible.builtin.apt:
+      clean: yes
